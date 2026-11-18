@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f4">
+  <meta name="description" content="Build confidence speaking American English with bite-sized listening, pronunciation, and conversation practice.">
+  <title>Say It — American English Speaking Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Say It home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 8.5A3.5 3.5 0 0 1 9.5 5h13A3.5 3.5 0 0 1 26 8.5v9a3.5 3.5 0 0 1-3.5 3.5h-7l-6 5v-5A3.5 3.5 0 0 1 6 17.5z"/><path d="M12 12v2m4-4v6m4-4v2"/></svg></span>
+        <span>say<span class="brand-dot">.</span>it</span>
+      </a>
+      <div class="topbar-right"><span class="streak-pill"><span aria-hidden="true">🔥</span><strong id="streak-count">0</strong><span>day streak</span></span><button class="avatar" aria-label="Your profile">J</button></div>
+    </header>
+
+    <main>
+      <section class="welcome-row">
+        <div><p class="eyebrow">YOUR DAILY SPEAKING PRACTICE</p><h1>Find your <span>American voice.</span></h1><p class="welcome-copy">A little practice goes a long way. Let’s make today count.</p></div>
+        <div class="progress-card"><div class="progress-icon" aria-hidden="true">✦</div><div><span class="progress-label">TODAY'S PROGRESS</span><strong id="progress-count">0 <small>/ 5 phrases</small></strong></div><div class="progress-track"><span id="progress-bar"></span></div></div>
+      </section>
+
+      <nav class="category-tabs" aria-label="Lesson categories" role="tablist">
+        <button class="category-tab active" role="tab" aria-selected="true" data-category="smalltalk"><span class="tab-emoji">☕</span> Everyday small talk</button>
+        <button class="category-tab" role="tab" aria-selected="false" data-category="interview"><span class="tab-emoji">💼</span> Job interviews</button>
+        <button class="category-tab" role="tab" aria-selected="false" data-category="idioms"><span class="tab-emoji">💬</span> Idioms &amp; slang</button>
+        <button class="category-tab" role="tab" aria-selected="false" data-category="pronunciation"><span class="tab-emoji">👄</span> Tricky pronunciation</button>
+      </nav>
+
+      <div class="practice-layout">
+        <section class="lesson-card" aria-labelledby="lesson-title">
+          <div class="lesson-topline"><span class="lesson-tag"><span class="live-dot"></span> LISTEN &amp; REPEAT</span><span id="phrase-counter" class="phrase-counter">PHRASE 01 / 05</span></div>
+          <div class="lesson-content">
+            <div class="lesson-heading"><div><p id="lesson-subtitle" class="lesson-subtitle">A friendly way to start a conversation</p><h2 id="lesson-title">How’s your day going?</h2></div><button id="next-phrase" class="icon-button" aria-label="Next phrase" title="Next phrase"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div>
+            <div class="phonetic-row"><span class="phonetic-label">SAY IT LIKE</span><span id="phonetic" class="phonetic">/ howz yer day goh-ing /</span><button id="phonetic-help" class="help-button" aria-label="About phonetics" title="Simple sound guide">?</button></div>
+            <div class="tip-box"><span class="tip-icon" aria-hidden="true">✦</span><p id="tip-text"><strong>Sound natural:</strong> “How’s” is a relaxed contraction of “How is.” Keep the whole question light and friendly.</p></div>
+            <div class="listen-controls"><button id="listen-button" class="listen-button"><span class="speaker-icon" aria-hidden="true">▶</span><span>Listen</span></button><div class="speed-control" role="group" aria-label="Speaking speed"><button class="speed-option active" data-speed="1">Normal</button><button class="speed-option" data-speed="0.75">Slow</button></div><span class="voice-note"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span> en-US voice</span></div>
+          </div>
+          <div class="practice-divider"></div>
+          <div class="speak-area"><div class="speak-instructions"><span class="step-number">1</span><div><strong>Your turn</strong><p>Say the phrase out loud. Take your time!</p></div></div><button id="speak-button" class="speak-button" aria-pressed="false"><span class="mic-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3m-4 0h8"/></svg></span><span id="speak-label">Hold or click to speak</span></button><p class="mic-hint" id="mic-hint">Tap to start · tap again when you’re done</p></div>
+          <div class="feedback-area" id="feedback-area" aria-live="polite"><div class="transcript-label">YOUR SPEECH <span id="listening-status"></span></div><p id="transcript" class="transcript-placeholder">Your words will appear here as you speak…</p><div id="score-row" class="score-row" hidden><span class="score-number" id="accuracy-score">0%</span><span class="score-caption" id="score-caption">Keep going — you’ve got this!</span><button id="try-again" class="try-again">Try again</button></div></div>
+          <div class="lesson-footer"><span><span class="keyboard-hint">TIP</span> Speak clearly, not perfectly.</span><button id="next-button" class="next-button">Next phrase <span aria-hidden="true">→</span></button></div>
+        </section>
+
+        <aside class="side-column">
+          <section class="roleplay-card"><div class="roleplay-heading"><span class="roleplay-icon" aria-hidden="true">↗</span><div><p class="eyebrow">PUT IT TOGETHER</p><h3>Real-life roleplay</h3></div><span class="beta-tag">LIVE</span></div><p class="roleplay-copy">Practice a real conversation. I’ll ask, you answer—just like everyday life.</p><div class="chat-preview" id="chat-preview"><div class="chat-line coach-line"><span class="chat-avatar">S</span><p id="roleplay-question">Hey! What do you like to do on the weekends?</p></div><div id="chat-replies"></div></div><button id="roleplay-button" class="roleplay-button"><span aria-hidden="true">🎙</span> Start a conversation</button><p class="roleplay-note">Uses your microphone · Nothing is recorded</p></section>
+          <section class="words-card"><div class="words-heading"><h3>Your word bank</h3><span class="word-count" id="word-count">0 learned</span></div><div id="word-bank" class="word-bank"><p class="empty-words">Complete a phrase to start building your word bank.</p></div><div class="words-footer"><span>Little by little, you’re getting there.</span><span aria-hidden="true">🌱</span></div></section>
+        </aside>
+      </div>
+      <footer class="page-footer"><span>Made for real conversations, one phrase at a time.</span><span>🔒 Your voice stays on your device</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
